@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5db017e1649424a931b81cdca7d553, type: 3}
-  m_Name: 01. KingConversation
+  m_Script: {fileID: 11500000, guid: 0172b34aa9ad0eb459fe09e7e6b8d818, type: 3}
+  m_Name: Queen
   m_EditorClassIdentifier: 
   AllInteractions:
     array:
-    - 
-    - 
-    _hashCode: 866554368
-  Consequences: []
+    - {fileID: 11400000, guid: ef48602af0dee704aba385ac62dbd1d0, type: 2}
+    - {fileID: 11400000, guid: acff9826a54f29b42ad0bba3546940c7, type: 2}

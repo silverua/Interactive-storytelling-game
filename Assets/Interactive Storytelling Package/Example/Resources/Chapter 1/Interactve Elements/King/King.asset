@@ -15,4 +15,4 @@ MonoBehaviour:
   AllInteractions:
     array:
     - {fileID: 11400000, guid: 88ba33ca83d74b445aac736527656024, type: 2}
-    _hashCode: 1583840256
+    - {fileID: 11400000, guid: 59851bc6d8368ad4b990e3e224c86f70, type: 2}

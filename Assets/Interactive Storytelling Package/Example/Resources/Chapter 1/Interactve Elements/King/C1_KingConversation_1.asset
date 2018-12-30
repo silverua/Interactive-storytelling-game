@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5db017e1649424a931b81cdca7d553, type: 3}
+  m_Name: C1_KingConversation_1
+  m_EditorClassIdentifier: 
+  AllInteractions:
+    array:
+    - 
+    - 
+  Consequences:
+  - Choice: {fileID: 11400000, guid: 1d80c4bafcafc30418e377626060495e, type: 2}
+    Item: {fileID: 0}
+    Condition: 0
+    Amount: 0
+    Consequences:
+    - ItemOrNpc: {fileID: 11400000, guid: 4dad56979d167bd4cbcf2bbbef5c6592, type: 2}
+      NewInteractionIndex: 1
+      ItemToGiveOrRemove: {fileID: 0}
+      AmountToGiveOrRemove: 0
+    - ItemOrNpc: {fileID: 11400000, guid: 7408db693e44b724fb3e2334fbfed1a9, type: 2}
+      NewInteractionIndex: 1
+      ItemToGiveOrRemove: {fileID: 0}
+      AmountToGiveOrRemove: 0

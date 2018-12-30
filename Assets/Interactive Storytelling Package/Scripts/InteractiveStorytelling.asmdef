@@ -1,0 +1,14 @@
+{
+    "name": "InteractiveStorytelling",
+    "references": [
+        "ReorderableList"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

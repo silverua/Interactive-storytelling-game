@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class ChapterManager
@@ -11,25 +12,40 @@ public static class ChapterManager
     /// </summary>
     public static Dictionary<ItemAsset, int> Inventory { get; private set; }
 
-    // TODO: include some data about default conversations based on previous chapter:
     public static void SetChapter(ChapterAsset asset)
     {
         CurrentChapter = asset;
         AllChoices = Resources.LoadAll<ChoiceAsset>("");
         // TODO: load the items that we already have on this level:
         Inventory = new Dictionary<ItemAsset, int>();
+        // TODO: include some data about default conversations based on previous chapter:
+        ResetAllInteractions(); // TEMP
+    }
+
+    private static void ResetAllInteractions()
+    {
+        foreach (var element in CurrentChapter.AllInteractiveElements)
+            element.CurrentInteractionIndex = 0;
     }
 
     public static void SetChapter(string chapterName)
     {
-        var chapter = Resources.Load<ChapterAsset>(chapterName);
-        if (chapter == null)
+        var chapters = Resources.LoadAll<ChapterAsset>("");
+        var chaptersWithThisName = (from c in chapters where c.name == chapterName select c).ToList();
+        
+        if (chaptersWithThisName.Count == 0)
         {
             Debug.Log("Chapter with name: " + chapterName + " not found in project");
             return;
         }
 
-        SetChapter(chapter);
+        if (chaptersWithThisName.Count > 1)
+        {
+            Debug.LogWarning("Multiple chapters found with name: " + chapterName +
+                             " The first one will be selected, check naming.");
+        }
+
+        SetChapter(chaptersWithThisName[0]);
     }
 
     // negative amount == remove item.

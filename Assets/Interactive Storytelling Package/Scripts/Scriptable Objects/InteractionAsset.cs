@@ -44,6 +44,9 @@ public class ChoiceAndConsequences
 
     private bool ConditionIsFulfilled()
     {
+        if (Item == null)
+            return true;
+        
         var inventoryAmount = ChapterManager.Inventory.ContainsKey(Item) ? ChapterManager.Inventory[Item] : 0; 
         switch (Condition)
         {
