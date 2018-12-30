@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
+using Malee;
 
 /// <summary>
 /// An interactive element on one isolated level,
@@ -11,7 +11,8 @@ using System.Linq;
 public class InteractiveElementAsset : ScriptableObject
 {
     // All interactions include conversations with NPCs, trying to open a chest or a door
-    public List<InteractionAsset> AllInteractions = new List<InteractionAsset>();
+    [Reorderable(elementNameProperty = "name")]
+    public InteractionAssetList AllInteractions;
     // this is the current state of this character/item: 
     // the interaction out of the list of all possible interactions that we get when the players approach this
     private int currentInteractionIndex = 0;
@@ -34,7 +35,7 @@ public class InteractiveElementAsset : ScriptableObject
     { 
         get
         {
-            if (CurrentInteractionIndex < 0 || CurrentInteractionIndex > AllInteractions.Count - 1)
+            if (CurrentInteractionIndex < 0 || CurrentInteractionIndex > AllInteractions.Length - 1)
                 return null;
             return AllInteractions[CurrentInteractionIndex];
         }
@@ -76,4 +77,7 @@ public class InteractiveElementAsset : ScriptableObject
 
         consequencesOfThisChoice[0].TriggerAllConsequences();
     }
+    
+    [System.Serializable]
+    public class InteractionAssetList : ReorderableArray<InteractionAsset> {}
 }

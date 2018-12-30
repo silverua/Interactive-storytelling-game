@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Malee;
 using UnityEngine;
 
 public enum Condition
@@ -9,9 +10,12 @@ public enum Condition
 [CreateAssetMenu]
 public class InteractionAsset: ScriptableObject
 {
-    [TextArea(10, 20)] 
-    public string Lines;
+    [Reorderable]
+    public ReorderableStringList AllInteractions;
     public List<ChoiceAndConsequences> Consequences = new List<ChoiceAndConsequences>();
+
+    [System.Serializable]
+    public class ReorderableStringList : ReorderableArray<string>{}
 }
 
 [System.Serializable]

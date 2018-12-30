@@ -5,6 +5,9 @@ public static class ChapterManager
 {
     public static ChapterAsset CurrentChapter { get; private set; }
     public static ChoiceAsset[] AllChoices { get; private set; }
+    /// <summary>
+    /// Storage for inventory items or stats
+    /// </summary>
     public static Dictionary<ItemAsset, int> Inventory { get; private set; }
 
     // TODO: include some data about default conversations based on previous chapter:
