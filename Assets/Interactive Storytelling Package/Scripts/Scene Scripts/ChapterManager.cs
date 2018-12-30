@@ -5,6 +5,7 @@ public static class ChapterManager
 {
     public static ChapterAsset CurrentChapter { get; private set; }
     public static ChoiceAsset[] AllChoices { get; private set; }
+
     /// <summary>
     /// Storage for inventory items or stats
     /// </summary>
@@ -19,8 +20,20 @@ public static class ChapterManager
         Inventory = new Dictionary<ItemAsset, int>();
     }
 
+    public static void SetChapter(string chapterName)
+    {
+        var chapter = Resources.Load<ChapterAsset>(chapterName);
+        if (chapter == null)
+        {
+            Debug.Log("Chapter with name: " + chapterName + " not found in project");
+            return;
+        }
+
+        SetChapter(chapter);
+    }
+
     // negative amount == remove item.
-    public static void AddOrRemoveItem (ItemAsset item, int amountToAdd)
+    public static void AddOrRemoveItem(ItemAsset item, int amountToAdd)
     {
         if (!Inventory.ContainsKey(item))
         {
