@@ -22,6 +22,7 @@ public class InteractionAsset: ScriptableObject
 public class ChoiceAndConsequences
 {
     public ChoiceAsset Choice;
+    public string Response;
     
     [Header("Requirements")] 
     public ItemAsset Item;

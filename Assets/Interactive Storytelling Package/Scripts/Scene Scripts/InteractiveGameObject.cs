@@ -10,7 +10,8 @@ public class InteractiveGameObject : MonoBehaviour, IEventSystemHandler
     public InteractiveElementAsset Asset;
     public List<UnityEvent> ConsequenceEvents;
     public TextMeshPro Text;
-    public float TimeToShowOneText;
+    public float TimeToShowOneText = 3f;
+    public float DistanceThreshold = 3f;
 
     private int displayingLineWithIndex = -1; // negative value = we are not displaying lines right now
     private WaitForSeconds delay;
@@ -36,6 +37,18 @@ public class InteractiveGameObject : MonoBehaviour, IEventSystemHandler
 
     private void OnMouseDown()
     {
+        // turn off the controller: 
+        var controller = FindObjectOfType<SimpleController>();
+        
+        if(controller == null)
+            return;
+
+        var distance = (transform.position - controller.transform.position).magnitude;
+        if (distance > DistanceThreshold)
+            return;
+        
+        controller.enabled = false;
+        
         StartCoroutine(ShowCurrentInteraction());
     }
 
@@ -65,5 +78,6 @@ public class InteractiveGameObject : MonoBehaviour, IEventSystemHandler
         displayingLineWithIndex = -1;
         Text.text = "";
         // show choices:
+        ChoicesManager.Instance.HandleEndOfInteraction(Asset);
     }
 }
