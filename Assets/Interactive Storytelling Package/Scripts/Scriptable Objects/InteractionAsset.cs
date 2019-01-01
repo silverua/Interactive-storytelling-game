@@ -11,7 +11,7 @@ public enum Condition
 public class InteractionAsset: ScriptableObject
 {
     [Reorderable]
-    public ReorderableStringList AllInteractions;
+    public ReorderableStringList AllTextLines;
     public List<ChoiceAndConsequences> Consequences = new List<ChoiceAndConsequences>();
 
     [System.Serializable]

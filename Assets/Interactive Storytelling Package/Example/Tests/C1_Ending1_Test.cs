@@ -16,6 +16,9 @@ namespace Tests
             ChapterManager.SetChapter("Chapter 1");
             // kill the king
             ChapterManager.InteractWith("King", "Sword");
+            // add any number of other interactions that are planned here:
+            
+            // check for results of all of these interactions:
             // get the queen
             var queen = ChapterManager.CurrentChapter.GetElementByName("Queen");
             // check that her current interaction index changed from 0 to 1

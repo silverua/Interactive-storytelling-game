@@ -1,7 +1,8 @@
 {
     "name": "InteractiveStorytelling",
     "references": [
-        "ReorderableList"
+        "ReorderableList",
+        "Unity.TextMeshPro"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
